@@ -1,6 +1,9 @@
 .dropzone {
     width: 200px;
-    height: 20px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: rgb(139, 139, 139);
     border: 1px solid black;
     padding: 10px;
