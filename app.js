@@ -7,7 +7,7 @@ function initDraggableElements() {
     let draggableElements = document.querySelectorAll('[draggable="true"]');
 
     draggableElements.forEach(function (draggableElement) {
-        
+
         draggableElement.addEventListener("dragstart", (event) => {
             event.dataTransfer.effectAllowed = "copy";
             event.dataTransfer.setData("text/html", draggableElement.outerHTML);
@@ -28,6 +28,11 @@ function initDropZones() {
     let dropTargets = document.querySelectorAll(".dropzone");
 
     dropTargets.forEach(function (dropTarget) {
+
+        // removeEventListener("dragenter", dropTarget);
+        // removeEventListener("dragleave", dropTarget);
+        // removeEventListener("dragover", dropTarget);
+        // removeEventListener("drop", dropTarget);
 
         dropTarget.addEventListener("dragenter", (event) => {
             if (event.dataTransfer.types.includes("text/html")) {
@@ -51,11 +56,8 @@ function initDropZones() {
         dropTarget.addEventListener("drop", (event) => {
             if (event.dataTransfer.types.includes("text/html")) {
                 event.preventDefault();
-                
                 const data = event.dataTransfer.getData("text/html");
-                console.log(data);
-                event.target.innerHTML = data;
-    
+                event.target.innerHTML = data.replace('draggable="true"', "");
                 event.target.classList.remove("dragover");
             }
         });
