@@ -1,0 +1,12 @@
+.dropzone {
+    width: 200px;
+    height: 20px;
+    background: rgb(139, 139, 139);
+    border: 1px solid black;
+    padding: 10px;
+}
+  
+.dropzone.dragover {
+    background: lightgray;
+    border: 1px dashed black;
+}
